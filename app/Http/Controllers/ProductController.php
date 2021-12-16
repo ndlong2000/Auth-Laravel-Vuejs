@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
@@ -92,5 +96,34 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function search(Request $request)
+    {
+        try {
+            $user = Product::findOrFail($request->input('user_id'));
+        } catch (ModelNotFoundException $exception) {
+            $message = 'Test chuc nang log: ';
+
+
+            Log::emergency($message);
+
+            Log::alert($message);
+
+            Log::critical($message);
+
+            Log::error($message);
+
+            Log::warning($message);
+
+            Log::notice($message);
+
+            Log::info($message);
+
+            Log::debug($message);
+            return response()->json(['errors' => 'ko co'], 401);
+        }
+
+        return response()->json(['user' => $user], 200);
     }
 }

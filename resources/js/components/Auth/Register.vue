@@ -2,7 +2,7 @@
     <div class="container">
         <div class="signup-content">
             <div class="signup-form">
-                <h2 class="form-title">Sign up</h2>
+                <h2 class="form-title">Register</h2>
                 <div class="alert alert-danger alert-dismissible" role="alert" v-if="error">
                     <b>{{ error.message }}</b>
                     <ul>
@@ -19,7 +19,7 @@
                         <router-link
                             class="nav-link"
                             :to="{name: 'login'}"
-                        >dang nhap
+                        >Dang nhap
                         </router-link>
                     </p>
                 </div>

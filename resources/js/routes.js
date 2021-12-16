@@ -2,6 +2,8 @@ import Home from './components/Home'
 import Register from './components/Auth/Register'
 import Login from "./components/Auth/Login";
 import ApiCalling from "./components/ApiCalling";
+import Search from "./components/Search";
+import Signin from "./components/Auth/Signin";
 
 var check_authenticate = (to, form, next) => {
     window.axios.defaults.headers.common['Authorization'] = 'Bearer '+ localStorage.getItem('token')
@@ -30,10 +32,20 @@ const routes = [
         name: 'login',
     },
     {
+        path: '/signin',
+        component: Signin,
+        name: 'signin',
+    },
+    {
         path: '/api-calling',
         component: ApiCalling,
         name: 'api_calling',
         beforeEnter: check_authenticate
+    },
+    {
+        path: '/search',
+        component: Search,
+        name: 'search',
     },
 ];
 

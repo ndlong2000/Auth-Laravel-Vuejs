@@ -30,6 +30,8 @@ Vue.component('app', require('./App.vue').default);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('api-calling', require('./components/ApiCalling.vue').default);
+Vue.component('login', require('./components/Auth/Login.vue').default);
+Vue.component('register', require('./components/Auth/Register.vue').default);
 
 const router = new VueRouter({
     routes,

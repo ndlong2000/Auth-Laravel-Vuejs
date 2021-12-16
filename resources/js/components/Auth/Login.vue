@@ -2,7 +2,18 @@
     <div class="container">
         <div class="signin-content">
             <div class="signin-form">
-                <h2 class="form-title">Sign up</h2>
+                <h2 class="form-title">Login</h2>
+                <div class="alert alert-danger alert-dismissible" role="alert" v-if="error">
+                    <b>{{ error.message }}</b>
+                    <ul>
+                        <li v-for="(errorName, index) in error.errors" :key="index">
+                            {{ errorName[0] }}
+                        </li>
+                    </ul>
+                    <button type="button" class="close" @click="error = null">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 <div class="form-group">
                     <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                     <input v-model="user.email" type="text" name="email" id="your_name" placeholder="Your Name"/>
